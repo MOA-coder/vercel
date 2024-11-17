@@ -1,11 +1,11 @@
 import cred from "@/styles/consultas/creditos/credores.module.css";
-import Head from "next/head";
 import Top from "@/components/top";
 import Menu from "@/components/menu"; 
 import Link from "next/link";
 import { Creditor } from "@/infra/interfacess";
 import { CreditorsService } from "@/services/creditors_services";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Credores() {
 
@@ -42,7 +42,7 @@ export default function Credores() {
             {
               creditors.map((creditor, i) => (
                 <Link key={i} href={"infoCredor?credor=" + creditor._id} className={cred.inner}>
-                  <img src={creditor.logo} width={60} height={60} alt="" />
+                  <Image src={creditor.logo} width={60} height={60} alt="" />
                   <p className={cred.in}>{creditor.name}</p>
                   <p>30.000,00 kz</p>
                 </Link>

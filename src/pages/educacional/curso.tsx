@@ -1,5 +1,4 @@
 import pay from "@/styles/educacional/curso.module.css";
-import Head from "next/head";
 import Top from "@/components/top";
 import Menu from "@/components/menu";
 import Image from "next/image";

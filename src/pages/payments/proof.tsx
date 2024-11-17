@@ -3,6 +3,8 @@ import Top from "@/components/top";
 import Menu from "@/components/menu";
 import PurpleButton, { ProofButton } from "@/components/buttons";
 import Layout from "@/components/Layout";
+import Image from "next/image";
+
 
 export default function Proof() {
   return (
@@ -13,7 +15,7 @@ export default function Proof() {
 
           <div className={prf.proof}>
             <div className={prf.top}>
-              <img src="../../icons/suc_proof.svg" alt="" width="90" />
+              <Image src="/icons/suc_proof.svg" alt="" width="90" />
             </div>
             <div className={prf.inner}>
               <div className={prf.title}>

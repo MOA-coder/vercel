@@ -1,13 +1,13 @@
 import pay from "@/styles/payments/nfcPay.module.css";
 import payC from "@/styles/payments/instituicao/confP.module.css";
 import styles from "@/styles/cards.module.css";
-import Head from "next/head";
 import Top from "@/components/top";
 import Menu from "@/components/menu";
 import React, { useRef } from "react";
 import Button from "@/components/buttons";
 import CartaoMultischool from "@/components/cards";
 import Layout from "@/components/Layout";
+import Image from "next/image";
 
 
 export default function Nfcpayment() {
@@ -36,7 +36,7 @@ export default function Nfcpayment() {
             <CartaoMultischool />
           </div>
           <div className={pay.nfc}>
-            <img src="../../icons/nfc.svg" alt="" width="90" />
+            <Image src="/icons/nfc.svg" alt="" width="90" />
             <p>Aproxime o seu smartphone ao TPA...</p>
           </div>
 

@@ -8,6 +8,7 @@ import Link from "next/link";
 import PurpleButton from "@/components/buttons";
 import Layout from "@/components/Layout";
 
+
 export default function ConfPPropina() {
   return (
     <>
@@ -24,8 +25,8 @@ export default function ConfPPropina() {
               className={`${styles.card} ${styles.card_m}`}
             >
               <div className={styles.top}>
-                <img src="../../img/cards.svg" alt="" width="190" />
-                <img src="../../img/nfc.png" alt="" />
+                <Image src="/img/cards.svg" alt="" width="190" />
+                <Image src="/img/nfc.png" alt="" />
               </div>
               <div className={styles.corpo}>
                 <div className={styles.c_number}>
@@ -37,7 +38,7 @@ export default function ConfPPropina() {
               </div>
               <div className={styles.bottom}>
                 <p>50.000,00 kz</p>
-                <img src="/img/Kwik.svg" alt="" width="40" />
+                <Image src="/img/Kwik.svg" alt="" width="40" />
               </div>
             </Link>
           </div>

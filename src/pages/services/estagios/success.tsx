@@ -1,22 +1,16 @@
-import Header from "@/components/head";
 import bolsas from "@/styles/services/bolsas/success.module.css";
-import Head from "next/head";
 import Top from "@/components/top";
 import PurpleButton from "@/components/buttons";
 import Menu from "@/components/menu";
 import Image from "next/image";
+import Layout from "@/components/Layout";
 
 export default function SucessoEstagio() {
   return (
     <>
+    <Layout title="Candidatura feita com sucesso!">
       <div className={bolsas.container}>
-        <Head>
-          <link
-            rel="cardsheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-          />
-        </Head>
-        <Header title="Candidatura enviada com sucesso!"></Header>
+       
         <Top information="Sucesso!" pagina="/services/menu"></Top>
 
         <div className={bolsas.art}>
@@ -46,6 +40,7 @@ export default function SucessoEstagio() {
         </div>
         <Menu></Menu>
       </div>
+      </Layout>
     </>
   );
 }

@@ -1,5 +1,4 @@
 import cred from "@/styles/consultas/creditos/infoCredor.module.css";
-import Head from "next/head";
 import Top from "@/components/top";
 import Menu from "@/components/menu";
 import Button from "@/components/buttons";
@@ -13,6 +12,8 @@ import { useAppSelector } from "@/hooks";
 import { selectUser } from "@/store";
 import { AlertUtils } from "@/utils";
 import Layout from "@/components/Layout";
+import Image from "next/image";
+
 
 export default function InfoCredor() {
   const [creditor, setCreditor] = useState<Creditor | null>(null);
@@ -87,7 +88,7 @@ export default function InfoCredor() {
           <Top information="Informações do Credor" pagina="/consultsM"></Top>
 
           <div className={cred.top}>
-            <img src={creditor?.logo} width={60} height={60} alt="" />
+            {/* <Image src={creditor?.logo} width={60} height={60} alt="" /> */}
             <p>{creditor?.name}</p>
           </div>
 

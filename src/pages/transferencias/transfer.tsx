@@ -1,5 +1,4 @@
 import cred from "@/styles/transfer/transfer.module.css";
-import Head from "next/head";
 import Top from "@/components/top";
 import payC from "@/styles/payments/instituicao/confirmacao2.module.css";
 import Menu from "@/components/menu";

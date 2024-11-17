@@ -1,13 +1,11 @@
 import hor from "@/styles/educacional/horario.module.css";
-import Head from "next/head";
 import Top from "@/components/top";
 import Menu from "@/components/menu";
 import Image from "next/image";
 
 // Função para limitar o texto a 12 caracteres e adicionar "..."
-const truncateText = (text, maxLength = 12) =>
+const truncateText = (text: string, maxLength: number = 12): string =>
   text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
-
 // Dados do horário
 const schedule = [
   {

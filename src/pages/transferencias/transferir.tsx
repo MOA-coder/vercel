@@ -1,5 +1,4 @@
 import transf from "@/styles/transfer/transferir.module.css";
-import Head from "next/head";
 import Top from "@/components/top";
 import Menu from "@/components/menu";
 import PurpleButton from "@/components/buttons";

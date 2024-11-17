@@ -1,5 +1,3 @@
-// pages/index.js
-import Head from "next/head";
 import styles from "@/styles/cards.module.css";
 import Top from "@/components/top";
 import Menu from "@/components/menu";

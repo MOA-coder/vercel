@@ -1,5 +1,4 @@
 "use client";
-import Head from "next/head";
 import { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import styles2 from "@/styles/inicio.module.css";
