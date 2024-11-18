@@ -43,7 +43,7 @@ export default function CartaoMultischool() {
           )}
         </p>
         <Image
-          src={"/img/kwik.svg"}
+          src={"/img/Kwik.svg"}
           alt="ba2ck"
           width={40}
           height={17}

@@ -2,74 +2,131 @@ import candidatura from "@/styles/perfil.module.css";
 import Top from "@/components/top";
 import Menu from "@/components/menu";
 import Image from "next/image";
-import { users } from "@/utils/image-exporter";
 import Layout from "@/components/Layout";
+import QRCode from "react-qr-code";
 
-export default function ResultadosBolsas() {
+interface ProfileData {
+  nome: string;
+  numeroEstudante: string;
+  curso: string;
+  turma: string;
+  idade: number;
+  dataConfirmacao: string;
+  estado: string;
+  foto: string
+}
+
+const InfoItem: React.FC<{
+  label: string;
+  value: string | number;
+  valueClass?: string;
+}> = ({ label, value, valueClass = "" }) => (
+  <div className={candidatura.items}>
+    <p className={candidatura.dark_g}>{label}</p>
+    <p className={`${candidatura.primary} ${valueClass}`}>{value}</p>
+  </div>
+);
+
+export default function ResultadosBolsas({
+  profileData,
+}: {
+  profileData: ProfileData;
+}) {
+  const {
+    nome,
+    numeroEstudante,
+    curso,
+    turma,
+    idade,
+    dataConfirmacao,
+    estado,
+    foto
+  } = profileData;
+
+  // P/ gerar o QR Code
+  const qrData = JSON.stringify({
+    nome,
+    numeroEstudante,
+    curso,
+    turma,
+    idade,
+    dataConfirmacao,
+    estado,
+    foto
+  });
+
   return (
-    <>
-      <Layout title="Perfil">
-        <div className={candidatura.container}>
-          <Top information="Perfil" pagina="/services/menu"></Top>
-          <div className={candidatura.foto}>
-            <Image src={users.user_default} width={130} height={130} alt="" />
+    <Layout title="Perfil">
+      <div className={candidatura.container}>
+        <Top information="Perfil" pagina="/services/menu" />
 
-            <h2>Ana Correia de Assis Diogo</h2>
-          </div>
-          <div className={candidatura.info}>
-            <div className={candidatura.items}>
-              <p className={candidatura.dark_g}>Número de estudante</p>
-              <p className={`${candidatura.primary} ${candidatura.estnum}`}>
-                20242190
-              </p>
-            </div>
-
-            {/* <div className={candidatura.items}>
-            <p className={candidatura.dark_g}>Nome</p>
-            <p className={`${candidatura.primary} ${candidatura.name}`}>
-              Ana Correia de Assis Diogo
-            </p>
-          </div> */}
-
-            <div className={candidatura.items}>
-              <p className={candidatura.dark_g}>Curso</p>
-              <p className={` ${candidatura.curso}`}>Engenharia informática</p>
-            </div>
-
-            <div className={candidatura.items}>
-              <p className={candidatura.dark_g}>Média anual</p>
-              <p className={`${candidatura.primary} ${candidatura.semestre}`}>
-                15 valores
-              </p>
-            </div>
-
-            <div className={candidatura.items}>
-              <p className={candidatura.dark_g}>Idade</p>
-              <p className={`${candidatura.primary} ${candidatura.anolec}`}>
-                22 anos
-              </p>
-            </div>
-
-            <div className={candidatura.items}>
-              <p className={candidatura.dark_g}>Data da candidatura</p>
-              <p className={`${candidatura.primary} ${candidatura.anoA}`}>
-                17/09/24 às 10h:40:30
-              </p>
-            </div>
-
-            <div className={candidatura.items}>
-              <p className={candidatura.dark_g}>Estado</p>
-              <p className={`${candidatura.success} ${candidatura.turma}`}>
-                Aprovado
-              </p>
-            </div>
-          </div>
-          <div className={candidatura.qrcode}>
-            <Image src={"/img/qr_code.svg"} width={150} height={150} alt="" />
-          </div>
-          <Menu></Menu>
+        <div className={candidatura.foto}>
+          <Image
+            src={`/img/${profileData.foto}`}
+            width={130}
+            height={130}
+            alt={`Foto de perfil de ${profileData.nome}`}
+          />
+          <h2>{nome}</h2>
         </div>
-      </Layout>
-    </>
+
+        <div className={candidatura.info}>
+          <InfoItem
+            label="Número de estudante"
+            value={profileData.numeroEstudante}
+            valueClass={candidatura.estnum}
+          />
+          <InfoItem
+            label="Curso"
+            value={profileData.curso}
+            valueClass={candidatura.curso}
+          />
+          <InfoItem
+            label="Turma"
+            value={profileData.turma}
+            valueClass={candidatura.semestre}
+          />
+          <InfoItem
+            label="Idade"
+            value={`${profileData.idade} anos`}
+            valueClass={candidatura.anolec}
+          />
+          <InfoItem
+            label="Data da confirmação"
+            value={profileData.dataConfirmacao}
+            valueClass={candidatura.anoA}
+          />
+          <InfoItem
+            label="Estado"
+            value={estado}
+            valueClass={
+              estado === "Activo" ? candidatura.success : candidatura.fail
+            }
+          />
+        </div>
+
+        <div className={candidatura.qrcode}>
+          <QRCode value={qrData} size={150} />
+        </div>
+        <Menu />
+      </div>
+    </Layout>
   );
+}
+
+export async function getServerSideProps() {
+  const profileData: ProfileData = {
+    nome: "Ana Correia de Assis Diogo",
+    numeroEstudante: "20242190",
+    curso: "Engenharia Informática",
+    turma: "EINF-M2",
+    idade: 22,
+    dataConfirmacao: "17/09/24",
+    estado: "Activo",
+    foto: "id.svg"
+  };
+
+  return {
+    props: { profileData },
+  };
 }

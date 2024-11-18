@@ -15,7 +15,6 @@ import { TransactionService } from "@/services";
 import { Transaction } from "@/infra/interfacess";
 import { TransactionList } from "@/components/transactionTable/transactrionTable";
 import Layout from "@/components/Layout";
-import QRCode from "qrcode";
 
 export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -17,7 +17,7 @@ export default function Home() {
         <Top information="Os meus cartões" pagina="home" />
 
         <div className={`${styles.cards} ${styles.cards2}`}>
-          <CartaoMultischool></CartaoMultischool>
+          <CartaoMultischool />
           <CartaoEstudante
             student={{
               name: "Ana Correia de Assis Diogo",
@@ -41,7 +41,7 @@ export default function Home() {
                 "ISPTEC - Instituto Superior Politécnico de Tecnologias e Ciências",
               logo: "unitel.svg",
               avatar: "id.svg",
-              company: "Unitel S.A"
+              company: "Unitel S.A",
             }}
             color={colorEst}
           />
